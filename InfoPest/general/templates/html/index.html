@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Info Pets</title>
+  </head>
+  <body>
+   <div class="container">
+    <form action="{% url 'general:detail' %}" method="post">{% csrf_token %}
+        <label ><b>Usuario</b></label>
+        <input type="text"  name="uname" required>
+
+        <label ><b>Contraseña</b></label>
+        <input type="password" name="psw" required>
+        <button type="submit">INICIAR SESION</button>
+          </form>
+   </div>
+   <div id = "registrarse">
+      <p>¿No tienes cuenta?</p>
+      <form action="{% url 'general:results' %}" method="post">{% csrf_token %}
+          <button type="submit">REGISTRATE AQUÍ</button>
+      </form>
+  </div>
+  </body>
+</html>
