@@ -3,10 +3,10 @@ from .models import Question, Choice, usuarios
 
 # return render(request, 'polls/index.html', context)
 
-def index(request):
-    return render(request, 'html/index.html')
+def inicio(request):
+    return render(request, 'html/login.html')
 
-def detail(request):
+def pag_principal(request):
     context = {}
     usuario = request.POST.get('uname')
     contrasena = request.POST.get('psw')
@@ -18,12 +18,12 @@ def detail(request):
     else:
         context['uname'] = usuario
         context['psw'] = contrasena
-    return render(request, 'html/detail.html',context)
+    return render(request, 'html/inicio.html',context)
 
 def results(request):
-    return render(request, 'html/results.html')
+    return render(request, 'html/registro.html')
 
-def vote(request):
+def registro(request):
     email = request.POST.get('email')
     usuarioxd = request.POST.get('uname')
     password = request.POST.get('psw')
@@ -34,4 +34,4 @@ def vote(request):
     nuevo_usuario.save()
     context = {}
     context['uname'] = usuarioxd
-    return render(request, 'html/detail.html', context)
+    return render(request, 'html/inicio.html', context)

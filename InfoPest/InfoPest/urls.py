@@ -6,5 +6,5 @@ from general import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('general/', include('general.urls')),
-    path('', views.index, name='index'),
+    path('', views.inicio, name='incio'),
 ]

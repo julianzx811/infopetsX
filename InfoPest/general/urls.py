@@ -4,11 +4,11 @@ from . import views
 app_name = 'general'
 urlpatterns = [
     # ex: /general/
-    path('', views.index, name='index'),
+    path('', views.inicio, name='inicio'),
     # ex: /general/5/
-    path('lol/', views.detail, name='detail'),
+    path('lol/', views.pag_principal, name='pag_principal'),
     # ex: /general/5/results/
     path('registro/', views.results, name='results'),
     # ex: /general/5/vote/
-    path('vote/', views.vote, name='vote'),
+    path('vote/', views.registro, name='registro'),
 ]
