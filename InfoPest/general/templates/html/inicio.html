@@ -6,7 +6,8 @@
   </head>
   <body>
     {% if  uname == 'no' %}
-      <h1>largese</h1>
+      <h1>usted no esta registrado en la pagina</h1>
+      <a href="{% url 'general:inicio' %}">volver a la pagina de inicio</a>
     {% endif %}
 
     {% if  uname != 'no' %}

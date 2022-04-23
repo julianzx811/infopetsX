@@ -4,16 +4,14 @@
     <meta charset="utf-8">
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/results.css' %}">
-    <script src="{% static 'java/java.js' %}"></script>
+    <script src="{% static 'java/registro.js' %}"></script>
     <title>Info Pets</title>
   </head>
   <body>
   <form action="{% url 'general:registro' %}" method="post">{% csrf_token %}
   <div class="container">
-    <h1>REGISTRAR</h1>
-    <p>Please fill in this form to create an account.</p>
+    <h1>REGISTRO</h1>
     <hr>
-
     <label for="email"><b>Email</b></label>
     <input type="text" placeholder="Email" name="email" id="email" required>
 
@@ -29,21 +27,18 @@
     <label for="edad"><b>Edad</b></label>
     <input type="number"  min="18" max="100" name="edad" id="edad" required>
 
-    <div class="dropdown">
-      <button onclick="myFunction()" class="dropbtn"  name="dropdown">Sexo</button>
-      <div id="myDropdown" class="dropdown-content">
-        <a href="#masculino">Masculino</a>
-        <a href="#femenino">Femenino</a>
-        <a href="#wtfffff">No binario</a>
-      </div>
-    </div>
+    <select id="dropdown" name="select">
+      <option value="" disabled selected hidden>selecione su genero</option>
+      <option value="masculino">masculino</option>
+      <option value="femenino">femenino</option>
+      <option value="binario">binario wtfff????</option>
+    </select>
     <hr>
-
     <button type="submit" class="registerbtn">REGISTRAR</button>
   </div>
+  </form>
   <div class="container signin">
-    <p>¿Ya tienes cuenta? <a href="/polls/">INICIAR SESION</a>.</p>
+    <p>¿Ya tienes cuenta? <a href="{% url 'general:inicio' %}">INICIAR SESION</a>.</p>
   </div>
-</form>
   </body>
 </html>
