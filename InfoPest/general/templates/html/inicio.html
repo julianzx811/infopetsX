@@ -12,6 +12,12 @@
 
     {% if  uname != 'no' %}
       <h1>BIENVENID@ {{uname}}</h1>
+    <form action="{% url 'general:ver_mascotas' %}">
+      <button type="submit" >ver mis mascotas</button>
+    </form>
+    <form action="{% url 'general:creando_mascota' %}">
+      <button type="submit" >agregar mascota</button>
+    </form>
     {% endif %}
   </body>
 </html>

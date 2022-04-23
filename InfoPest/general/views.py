@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Question, Choice, usuarios
+from .models import usuarios, pets
 
 # return render(request, 'polls/index.html', context)
 
@@ -12,15 +12,17 @@ def pag_principal(request):
     contrasena = request.POST.get('psw')
     usuario_query = usuarios.objects.filter(usuario=usuario)
     contrasena_query = usuarios.objects.filter(contrasena=contrasena)
+    id =usuarios.objects.filter(usuario=usuario).values_list('id', flat=True)
     if not usuario_query and not usuario_query:
         context['uname'] = 'no'
         context['psw'] = 'no'
     else:
         context['uname'] = usuario
         context['psw'] = contrasena
+        context['id'] = id
     return render(request, 'html/inicio.html',context)
 
-def results(request):
+def registrandome(request):
     return render(request, 'html/registro.html')
 
 def registro(request):
@@ -35,3 +37,9 @@ def registro(request):
     context = {}
     context['uname'] = usuarioxd
     return render(request, 'html/inicio.html', context)
+
+def creando_mascota(request):
+    return render(request, 'html/newMascota.html')
+
+def ver_mascotas(request):
+    return render(request, 'html/mascotas.html')
