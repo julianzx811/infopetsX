@@ -38,7 +38,7 @@ def registro(request):
     context['uname'] = usuarioxd
     return render(request, 'html/inicio.html', context)
 
-def creando_mascota(request):
+def creando_mascota(request,mascota):
     return render(request, 'html/newMascota.html')
 
 def ver_mascotas(request):
