@@ -39,7 +39,7 @@ def registro(request):
     return render(request, 'html/inicio.html', context)
 
 def creando_mascota(request,mascota):
-    return render(request, 'html/newMascota.html')
+    return render(request, 'html/newMascota.html', {'uname':mascota})
 
 def ver_mascotas(request):
     return render(request, 'html/mascotas.html')
