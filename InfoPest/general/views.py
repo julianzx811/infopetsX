@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import usuarios, pets
+from .models import usuarios, mascota,info_pets_empresas,veterinaria
 
 # return render(request, 'polls/index.html', context)
 
@@ -32,7 +32,7 @@ def registro(request):
     psw_repeat = request.POST.get('psw-repeat')
     edadd = request.POST.get('edad')
     sexoo = 'nose'
-    nuevo_usuario = usuarios(usuario=usuarioxd, contrasena=password, email_user=email, sexo=sexoo, edad=edadd)
+    nuevo_usuario = usuarios(veterinaria_id=veterinaria.objects.get(pk=1), usuario=usuarioxd, contrasena=password, email_user=email, sexo=sexoo, edad=edadd)
     nuevo_usuario.save()
     context = {}
     context['uname'] = usuarioxd
