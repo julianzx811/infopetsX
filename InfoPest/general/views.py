@@ -47,10 +47,14 @@ def registro(request):
     return render(request, 'html/inicio.html', context)
 
 def creando_mascota(request,id):
-    new_mascota = mascota()
     return render(request, 'html/newMascota.html',{'id':id})
 
-def anadir_mascota(request,id):
+def anadiendo_mascota(request,id):
+    nombre = request.POST.get('nombre')
+    edad = request.POST.get('edad')
+    sexo = 'obvio'
+    new_mascota = mascota(dueno_id=usuarios.objects.get(pk=id),mascota_name=nombre,edad=edad,sexo=sexo)
+    new_mascota.save()
     return pag_principal(request, id)
 
 def ver_mascotas(request):
