@@ -13,13 +13,13 @@ def pag_principal(request):
     usuario_query = usuarios.objects.filter(usuario=usuario)
     contrasena_query = usuarios.objects.filter(contrasena=contrasena)
     id =usuarios.objects.filter(usuario=usuario).values_list('id', flat=True)
-    if not usuario_query and not usuario_query:
-        context['uname'] = 'no'
-        context['psw'] = 'no'
-    else:
+    if usuario_query.exists() and contrasena_query.exists():
         context['uname'] = usuario
         context['psw'] = contrasena
         context['id'] = id
+    else:
+        context['uname'] = 'no'
+        context['psw'] = 'no'
     return render(request, 'html/inicio.html',context)
 
 def registrandome(request):

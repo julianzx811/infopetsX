@@ -5,13 +5,13 @@
     <title>Info Pets</title>
   </head>
   <body>
-    {% if  uname == 'no' %}
+    {% if  uname == 'no' and  psw == 'no' %}
       <h1>usted no esta registrado en la pagina</h1>
       <a href="{% url 'general:inicio' %}">volver a la pagina de inicio</a>
     {% endif %}
 
-    {% if  uname != 'no' %}
-      <h1>BIENVENID@ {{uname}}</h1>
+    {% if  uname != 'no' and  psw != 'no'%}
+      <h1>BIENVENID@ {{uname}} {{psw}}</h1>
     <form action="{% url 'general:ver_mascotas' %}">{% csrf_token %}
       <button type="submit" >ver mis mascotas</button>
     </form>
