@@ -27,6 +27,7 @@ def pag_principal(request,id):
         usuario = usuarios.objects.get(id=id)
         context['uname'] = usuario.usuario
         context['psw'] = usuario.contrasena
+        context['id'] = usuario.id
     return render(request,'html/inicio.html',context)
 
 def registrandome(request):
@@ -45,8 +46,12 @@ def registro(request):
     context['uname'] = usuarioxd
     return render(request, 'html/inicio.html', context)
 
-def creando_mascota(request):
-    return render(request, 'html/newMascota.html')
+def creando_mascota(request,id):
+    new_mascota = mascota()
+    return render(request, 'html/newMascota.html',{'id':id})
+
+def anadir_mascota(request,id):
+    return pag_principal(request, id)
 
 def ver_mascotas(request):
     return render(request, 'html/mascotas.html')

@@ -4,9 +4,9 @@
 <title>maten a yulian</title>
 </head>
 <body>
-<form action="{% url 'general:redirect_pag_principal' %}" method="post">{% csrf_token %}
+<form action="{% url 'general:pag_principal' id %}" method="post">{% csrf_token %}
   <div class="container">
-    <h1>REGISTRO {{uname}}</h1>
+    <h1>REGISTRO {{uname}}{{id}}</h1>
     <hr>
     <label for="nombre"><b>nombre</b></label>
     <input type="text" name="nombre" id="nombre" required>
