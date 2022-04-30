@@ -42,9 +42,10 @@ def registro(request):
     sexoo = 'nose'
     nuevo_usuario = usuarios(veterinaria_id=veterinaria.objects.get(pk=1), usuario=usuarioxd, contrasena=password, email_user=email, sexo=sexoo, edad=edadd)
     nuevo_usuario.save()
+    id = nuevo_usuario.id
     context = {}
     context['uname'] = usuarioxd
-    return render(request, 'html/inicio.html', context)
+    return pag_principal(request,id)
 
 def creando_mascota(request,id):
     return render(request, 'html/newMascota.html',{'id':id})
