@@ -25,9 +25,11 @@ class usuarios(models.Model):
 
 class mascota(models.Model):
     dueno_id = models.ForeignKey(usuarios, on_delete=models.CASCADE)
-    mascota_name =  models.CharField(max_length=200)
+    mascota_name = models.CharField(max_length=200)
     edad = models.IntegerField(default=0)
     sexo = models.CharField(max_length=200, default='no llenado')
+
+
 
 class historial_clinico(models.Model):
     mascota_id = models.ForeignKey(mascota, on_delete=models.CASCADE)
