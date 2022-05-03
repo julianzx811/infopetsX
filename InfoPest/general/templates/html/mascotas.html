@@ -8,7 +8,7 @@
   {% if mascotas %}
     <ul>
     {% for mascota in mascotas %}
-        <li> {{ mascota.mascota_name }}</li>
+        <li><a href="{% url 'general:info_mascota' mascota.id %}">{{ mascota.mascota_name }}</a></li>
     {% endfor %}
     </ul>
   {% else %}

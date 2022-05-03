@@ -12,7 +12,7 @@
 
     {% if  uname != 'no' and  psw != 'no'%}
       <h1>BIENVENID@ {{uname}} </h1>
-    <form action="{% url 'general:ver_mascotas' id%}">{% csrf_token %}
+    <form action="{% url 'general:ver_mascotas' id %}">{% csrf_token %}
       <button type="submit" >ver mis mascotas</button>
     </form>
     <form action="{% url 'general:creando_mascota' id %}">{% csrf_token %}

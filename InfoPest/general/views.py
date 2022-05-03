@@ -60,5 +60,14 @@ def anadiendo_mascota(request,id):
 
 def ver_mascotas(request,id):
     mascotas = mascota.objects.filter(dueno_id=id)
-    context = {'mascotas': mascotas}
+    context = {'mascotas': mascotas,'id':id}
     return render(request, 'html/mascotas.html',context)
+
+def info_mascota(request,id):
+    mascotas = mascota.objects.get(pk=id)
+    dueno_id = mascotas.dueno_id
+    mascota_name = mascotas.mascota_name
+    edad = mascotas.edad
+    sexo = mascotas.sexo
+    context = {'dueno_id':dueno_id , 'mascota_name':mascota_name , 'edad':edad, 'sexo':sexo}
+    return render(request, 'html/info_mascota.html', context)
