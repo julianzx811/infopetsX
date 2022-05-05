@@ -1,5 +1,5 @@
 from django.shortcuts import render, reverse, redirect
-from .models import veterinarios, mascota,info_pets_empresas, veterinaria,historial_clinico
+from .models import veterinarios, mascota, info_pets_empresas, veterinaria, historial_clinico
 from django.http import HttpResponse
 # return render(request, 'polls/index.html', context)
 
@@ -31,7 +31,9 @@ def pag_principal(request,id):
     return render(request,'html/inicio.html',context)
 
 def registrandome(request):
-    return render(request, 'html/registro.html')
+    veterinarias = veterinaria.objects.all()
+    context = {'veterinarias': veterinarias}
+    return render(request, 'html/registro.html',context)
 
 def registro(request):
     email = request.POST.get('email')
@@ -40,12 +42,11 @@ def registro(request):
     psw_repeat = request.POST.get('psw-repeat')
     edadd = request.POST.get('edad')
     sexoo = request.POST['select']
-    nuevo_usuario = veterinarios(veterinaria_id=veterinaria.objects.get(pk=1), usuario=usuarioxd, contrasena=password, email_user=email, sexo=sexoo, edad=edadd)
+    veterinaria_id = request.POST['select_veterinarias']
+    nuevo_usuario = veterinarios(veterinaria_id=veterinaria.objects.get(pk=veterinaria_id), usuario=usuarioxd, contrasena=password, email_user=email, sexo=sexoo, edad=edadd)
     nuevo_usuario.save()
     id = nuevo_usuario.id
-    context = {}
-    context['uname'] = usuarioxd
-    return pag_principal(request,id)
+    return pag_principal(request, id)
 
 def creando_mascota(request,id):
     return render(request, 'html/newMascota.html',{'id':id})
