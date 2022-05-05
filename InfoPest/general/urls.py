@@ -12,4 +12,5 @@ urlpatterns = [
     path('pag_principal/anadiendo_mascota/<int:id>', views.anadiendo_mascota, name='anadiendo_mascota'),
     path('pag_principal/ver_mascotas/<int:id>', views.ver_mascotas, name='ver_mascotas'),
     path('pag_principal/ver_mascotas/info_mascota/<int:id>', views.info_mascota, name='info_mascota'),
+    path('pag_principal/ver_mascotas_usuario', views.ver_mascotas_usuario, name='ver_mascotas_usuario'),
 ]

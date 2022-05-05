@@ -75,3 +75,9 @@ def info_mascota(request,id):
     historial = historial_clinico.objects.get(mascota_id=mascotas.id)
     context = {'dueno_id':dueno_id , 'mascota_name':mascota_name , 'edad':edad, 'sexo':sexo,'historial':historial.mascota_historial}
     return render(request, 'html/info_mascota.html', context)
+
+def ver_mascotas_usuario(request):
+    mascota_name = request.POST.get('mascota_name')
+    mascotas = mascota.objects.filter(mascota_name__startswith=mascota_name)
+    context = {'mascotas': mascotas}
+    return render(request, 'html/ver_mascotas.html', context)

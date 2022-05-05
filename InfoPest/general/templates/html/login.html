@@ -13,7 +13,7 @@
         <label ><b>Contraseña</b></label>
         <input type="password" name="psw" required>
         <button type="submit">INICIAR SESION</button>
-          </form>
+    </form>
    </div>
    <div id = "registrarse">
       <p>¿No tienes cuenta?</p>
@@ -21,5 +21,14 @@
           <button type="submit">REGISTRATE AQUÍ</button>
       </form>
   </div>
+
+   <form action="{% url 'general:ver_mascotas_usuario' %}" method="post">{% csrf_token %}
+      <div class="topnav">
+          <label ><b>encuentra a tu mascota!!</b></label>
+          <input type="text" placeholder="nombre de tu mascota.." name="mascota_name">
+          <button type="submit">buscar</button>
+        </div>
+   </form>
+
   </body>
 </html>
