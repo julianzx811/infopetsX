@@ -2,21 +2,21 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Info Pets</title>
+    <title>INFO PETS</title>
   </head>
   <body>
     {% if  uname == 'no' and  psw == 'no' %}
-      <h1>usted no esta registrado en la pagina</h1>
+      <h1>Usted no esta registrado en la pagina, por favor vuelva al inicio para crear un perfil</h1>
       <a href="{% url 'general:inicio' %}">volver a la pagina de inicio</a>
     {% endif %}
 
     {% if  uname != 'no' and  psw != 'no'%}
       <h1>BIENVENID@ {{uname}} </h1>
     <form action="{% url 'general:ver_mascotas' id %}">{% csrf_token %}
-      <button type="submit" >ver mis mascotas</button>
+      <button type="submit" >Ver mascotas</button>
     </form>
     <form action="{% url 'general:creando_mascota' id %}">{% csrf_token %}
-      <button type="submit" >agregar mascota</button>
+      <button type="submit" >Agregar mascota</button>
     </form>
     {% endif %}
   </body>

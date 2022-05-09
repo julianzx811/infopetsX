@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>maten a yulian</title>
+<title>REGISTRAR MASCOTA</title>
 </head>
 <body>
 <form action="{% url 'general:anadiendo_mascota' id %}" method="post">{% csrf_token %}
   <div class="container">
     <h1>REGISTRO {{uname}}</h1>
     <hr>
-    <label for="nombre"><b>nombre</b></label>
+    <label for="nombre"><b>Nombre</b></label>
     <input type="text" name="nombre" id="nombre" required>
 
     <label for="edad"><b>Edad</b></label>
     <input type="number"  min="1" max="30" name="edad" id="edad" required>
 
     <select id="dropdown" name="select">
-      <option value="" disabled selected hidden>genero de su mascota</option>
-      <option value="masculino">masculino</option>
-      <option value="femenino">femenino</option>
-      <option value="binario">mascota binaria wtfff????</option>
+      <option value="" disabled selected hidden>Genero de la mascota</option>
+      <option value="masculino">Macho</option>
+      <option value="femenino">Hembra</option>
     </select>
     <hr>
-    <button type="submit" class="registerbtn">añadir mascota</button>
+    <button type="submit" class="registerbtn">AÑADIR MASCOTA</button>
   </div>
   </form>
 </body>
