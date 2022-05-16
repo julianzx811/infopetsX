@@ -10,14 +10,13 @@
   <header><h1>INFO PETS</h1></header>
   <div id="general">
   <div id="inicioSesion">
-      <center><h1>Inicio de sesión</h1></center>
-    <form action="{% url 'general:redirect_pag_principal' %}" method="post">{% csrf_token %}
-        <center><label ><b>Usuario</b></label> <br>
-        <input type="text"  name="uname" required><br></center>
-
-        <center><label ><b>Contraseña</b></label><br>
-        <input type="password" name="psw" required><br><br>
-        <br><button class="iniciosecButton" type="submit"><span>INICIAR SESION</span></button></center>
+      <h1 id="tituloInicioSesion">Inicio de sesión</h1>
+    <form action="{% url 'general:redirect_pag_principal' %}" method="post" id="formInicioSesion">{% csrf_token %}
+        <label ><b>Usuario</b></label>
+        <input type="text"  name="uname" required>
+        <label ><b>Contraseña</b></label>
+        <input type="password" name="psw" required>
+        <button id="inicioSesionButton" type="submit"><span>INICIAR SESION</span></button>
     </form>
    </div>
    <div id = "registrarse">
