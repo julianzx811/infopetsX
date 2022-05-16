@@ -9,7 +9,7 @@
   <body>
   <header><h1>INFO PETS</h1></header>
   <div id="general">
-  <div class="container">
+  <div id="inicioSesion">
       <center><h1>Inicio de sesión</h1></center>
     <form action="{% url 'general:redirect_pag_principal' %}" method="post">{% csrf_token %}
         <center><label ><b>Usuario</b></label> <br>
@@ -26,14 +26,6 @@
           <button class="regisButton" type="submit">REGISTRATE AQUÍ</button>
       </form>
   </div>
-
-   <form action="{% url 'general:ver_mascotas_usuario' %}" method="post">{% csrf_token %}
-      <div class="topnav">
-          <label ><b>encuentra a tu mascota!!</b></label>
-          <input type="text" placeholder="nombre de tu mascota.." name="mascota_name">
-          <button type="submit">buscar</button>
-        </div>
-   </form>
 </div>
   </body>
 </html>
