@@ -20,8 +20,19 @@
     </form>
    </div>
    <div id = "registrarse">
-      <p>¿No tienes cuenta?</p>
-      <form action="{% url 'general:registrandome' %}" method="post">{% csrf_token %}
+       <h1 id="tituloRegistrarse">REGISTRATE</h1>
+       <form action="{% url 'general:redirect_pag_principal' %}" method="post" id="formRegistro">{% csrf_token %}
+      <p>Registra tu veterinaria</p>
+       <label ><b>Centro veterinario</b></label>
+        <input type="text"  name="uname" required>
+        <label ><b>Nombre del encargado</b></label>
+        <input type="text"  name="uname" required>
+       <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="example@email.com" name="email" id="email" required>
+       <label ><b>Dirección</b></label>
+        <input type="text"  name="uname" required>
+       <label ><b>Celular</b></label>
+        <input type="text"  name="uname" required>
           <button class="regisButton" type="submit">REGISTRATE AQUÍ</button>
       </form>
   </div>

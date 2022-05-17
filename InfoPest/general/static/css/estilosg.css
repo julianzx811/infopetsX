@@ -13,8 +13,6 @@ header {
     padding: 20px;
     background: #CB90DC;
     color: #fff;
-
-
 }
 
 #general {
@@ -54,7 +52,7 @@ header {
     display: inline-flex;
     aling-items: center;
     justify-content: center;
-    width: 80%;
+    width: 30%;
     height: 100%;
     background: #CB90DC;
     color: #fff;
@@ -81,8 +79,12 @@ header {
 
 #tituloInicioSesion {
     margin-bottom: 15px;
-
 }
+
+#tituloRegistrarse {
+    margin-bottom: 15px;
+}
+
 
 #inicioSesionButton {
     font-size: 1.1rem;
@@ -102,3 +104,8 @@ header {
     width: 80%;
 }
 
+#formRegistro {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
