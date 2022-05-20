@@ -23,7 +23,7 @@ header {
 
 #inicioSesion {
     width: 30%;
-    height: 300px
+    height: 300px;
     padding: 15px;
 }
 
@@ -36,7 +36,7 @@ header {
 
 .iniciosecButton{
     display: inline-flex;
-    aling-items: center;
+    align-items: center;
     justify-content: center;
     width: 40%;
     height: 100%;
@@ -50,7 +50,7 @@ header {
 
 .regisButton{
     display: inline-flex;
-    aling-items: center;
+    align-items: center;
     justify-content: center;
     width: 30%;
     height: 100%;
@@ -115,18 +115,20 @@ header {
     width: 80%;
 }
 
-#formRegistro {
+
+#division {
     display: flex;
-    flex-direction: column;
-    width: 80%;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    width: 90%;
 }
 
 #der{
-    width:60%
+    width:40%
 }
 
 #izq {
-    width:60%
+    width:45%
 }
 
 #der >input{
@@ -137,9 +139,4 @@ header {
 #izq >input{
     display: block;
     width: 100%;
-}
-
-#registrarse {
-    display: flex;
-    flex-direction: column;
 }
