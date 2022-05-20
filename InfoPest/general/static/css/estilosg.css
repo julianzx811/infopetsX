@@ -69,6 +69,17 @@ header {
 }
 
 #inicioSesion input{
+    width: 80%;
+    height: 900%;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    padding-left: 0.5rem;
+    border: 2px solid;
+    border-radius: 5px;
+    border-color: #C9D3DD;
+}
+
+#registrarse input{
     font-size: 1.1rem;
     margin-bottom: 1rem;
     padding-left: 0.5rem;
@@ -85,8 +96,8 @@ header {
     margin-bottom: 15px;
 }
 
-
 #inicioSesionButton {
+    width: 80%;
     font-size: 1.1rem;
     margin-bottom: 1rem;
     padding-left: 0.5rem;
@@ -108,4 +119,27 @@ header {
     display: flex;
     flex-direction: column;
     width: 80%;
+}
+
+#der{
+    width:60%
+}
+
+#izq {
+    width:60%
+}
+
+#der >input{
+    display: block;
+    width: 100%;
+}
+
+#izq >input{
+    display: block;
+    width: 100%;
+}
+
+#registrarse {
+    display: flex;
+    flex-direction: column;
 }

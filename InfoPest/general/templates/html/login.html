@@ -7,7 +7,13 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/estilosg.css' %}">
   </head>
   <body>
-  <header><h1>INFO PETS</h1></header>
+  <header><div id="izquierda"><h1>INFO PETS</h1></div>
+      <div id="derecha">
+        <a>Contacto</a>
+        <a>Conocenos</a>
+        <a>Iniciar sesión</a>
+      </div>
+  </header>
   <div id="general">
   <div id="inicioSesion">
       <h1 id="tituloInicioSesion">Inicio de sesión</h1>
@@ -25,14 +31,18 @@
       <p>Registra tu veterinaria</p>
        <label ><b>Centro veterinario</b></label>
         <input type="text"  name="uname" required>
-        <label ><b>Nombre del encargado</b></label>
+        <div id="der">
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="example@email.com" name="email" id="email" required>
+            <label ><b>Celular</b></label>
         <input type="text"  name="uname" required>
-       <label for="email"><b>Email</b></label>
-        <input type="text" placeholder="example@email.com" name="email" id="email" required>
-       <label ><b>Dirección</b></label>
-        <input type="text"  name="uname" required>
-       <label ><b>Celular</b></label>
-        <input type="text"  name="uname" required>
+        </div>
+        <div id="izq">
+            <label ><b>Nombre del encargado</b></label>
+            <input type="text"  name="uname" required>
+            <label ><b>Dirección</b></label>
+            <input type="text"  name="uname" required>
+        </div>
           <button class="regisButton" type="submit">REGISTRATE AQUÍ</button>
       </form>
   </div>
