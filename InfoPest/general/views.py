@@ -1,29 +1,39 @@
-from django.shortcuts import render, get_object_or_404
-from .models import usuarios, pets
-
+from django.shortcuts import render, reverse, redirect
+from .models import veterinarios, mascota, info_pets_empresas, veterinaria, historial_clinico
+from django.http import HttpResponse
 # return render(request, 'polls/index.html', context)
 
 def inicio(request):
     return render(request, 'html/login.html')
 
-def pag_principal(request):
+def redirect_pag_principal(request):
+    usuario_ = request.POST.get('uname')
+    contrasena_ = request.POST.get('psw')
+    #metodo con post para autenticar de que el usuario exista
+    usuario_query = veterinarios.objects.filter(usuario=usuario_)
+    contrasena_query = veterinarios.objects.filter(contrasena=contrasena_)
+    if usuario_query.exists() and contrasena_query.exists():
+        id = veterinarios.objects.get(usuario=usuario_)
+        return pag_principal(request, id.id)
+    else:
+        return pag_principal(request, 0)
+
+def pag_principal(request,id):
     context = {}
-    usuario = request.POST.get('uname')
-    contrasena = request.POST.get('psw')
-    usuario_query = usuarios.objects.filter(usuario=usuario)
-    contrasena_query = usuarios.objects.filter(contrasena=contrasena)
-    id =usuarios.objects.filter(usuario=usuario).values_list('id', flat=True)
-    if not usuario_query and not usuario_query:
+    if id == 0:
         context['uname'] = 'no'
         context['psw'] = 'no'
     else:
-        context['uname'] = usuario
-        context['psw'] = contrasena
-        context['id'] = id
-    return render(request, 'html/inicio.html',context)
+        usuario = veterinarios.objects.get(id=id)
+        context['uname'] = usuario.usuario
+        context['psw'] = usuario.contrasena
+        context['id'] = usuario.id
+    return render(request,'html/inicio.html',context)
 
 def registrandome(request):
-    return render(request, 'html/registro.html')
+    veterinarias = veterinaria.objects.all()
+    context = {'veterinarias': veterinarias}
+    return render(request, 'html/registro.html',context)
 
 def registro(request):
     email = request.POST.get('email')
@@ -31,15 +41,43 @@ def registro(request):
     password = request.POST.get('psw')
     psw_repeat = request.POST.get('psw-repeat')
     edadd = request.POST.get('edad')
-    sexoo = 'nose'
-    nuevo_usuario = usuarios(usuario=usuarioxd, contrasena=password, email_user=email, sexo=sexoo, edad=edadd)
+    sexoo = request.POST['select']
+    veterinaria_id = request.POST['select_veterinarias']
+    nuevo_usuario = veterinarios(veterinaria_id=veterinaria.objects.get(pk=veterinaria_id), usuario=usuarioxd, contrasena=password, email_user=email, sexo=sexoo, edad=edadd)
     nuevo_usuario.save()
-    context = {}
-    context['uname'] = usuarioxd
-    return render(request, 'html/inicio.html', context)
+    id = nuevo_usuario.id
+    return pag_principal(request, id)
 
-def creando_mascota(request):
-    return render(request, 'html/newMascota.html')
+def creando_mascota(request,id):
+    return render(request, 'html/newMascota.html',{'id':id})
 
-def ver_mascotas(request):
-    return render(request, 'html/mascotas.html')
+def anadiendo_mascota(request,id):
+    nombre = request.POST.get('nombre')
+    edad = request.POST.get('edad')
+    sexo = sexoo = request.POST['select']
+    new_mascota = mascota(dueno_id=veterinarios.objects.get(pk=id),mascota_name=nombre,edad=edad,sexo=sexo)
+    new_mascota.save()
+    new_historial_mascota = historial_clinico(mascota_id=mascota.objects.get(pk=new_mascota.id),mascota_historial='historial vacio')
+    new_historial_mascota.save()
+    return pag_principal(request, id)
+
+def ver_mascotas(request,id):
+    mascotas = mascota.objects.filter(dueno_id=id)
+    context = {'mascotas': mascotas,'id':id}
+    return render(request, 'html/mascotas.html',context)
+
+def info_mascota(request,id):
+    mascotas = mascota.objects.get(pk=id)
+    dueno_id = mascotas.dueno_id
+    mascota_name = mascotas.mascota_name
+    edad = mascotas.edad
+    sexo = mascotas.sexo
+    historial = historial_clinico.objects.get(mascota_id=mascotas.id)
+    context = {'dueno_id':dueno_id , 'mascota_name':mascota_name , 'edad':edad, 'sexo':sexo,'historial':historial.mascota_historial}
+    return render(request, 'html/info_mascota.html', context)
+
+def ver_mascotas_usuario(request):
+    mascota_name = request.POST.get('mascota_name')
+    mascotas = mascota.objects.filter(mascota_name__startswith=mascota_name)
+    context = {'mascotas': mascotas}
+    return render(request, 'html/ver_mascotas.html', context)

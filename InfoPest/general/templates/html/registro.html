@@ -5,7 +5,7 @@
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/results.css' %}">
     <script src="{% static 'java/registro.js' %}"></script>
-    <title>Info Pets</title>
+    <title>REGISTRO DEL VETERINARIO</title>
   </head>
   <body>
   <form action="{% url 'general:registro' %}" method="post">{% csrf_token %}
@@ -27,12 +27,20 @@
     <label for="edad"><b>Edad</b></label>
     <input type="number"  min="18" max="100" name="edad" id="edad" required>
 
-    <select id="dropdown" name="select">
+    <select id="dropdown" name="select" required>
       <option value="" disabled selected hidden>selecione su genero</option>
       <option value="masculino">masculino</option>
       <option value="femenino">femenino</option>
       <option value="binario">binario wtfff????</option>
     </select>
+
+    <select id="dropdown_veterinarias" name="select_veterinarias" required>
+      <option value="" disabled selected hidden>selecione su veterinaria asociada</option>
+      {% for veterinaria in veterinarias %}
+        <option value={{veterinaria.id}}>{{veterinaria.nombre}}</option>
+      {% endfor %}
+    </select>
+
     <hr>
     <button type="submit" class="registerbtn">REGISTRAR</button>
   </div>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MASCOTAS</title>
+</head>
+<body>
+    {% if mascotas %}
+        {% for mascota in mascotas %}
+            <li><a href="{% url 'general:info_mascota' mascota.id %}">{{ mascota.mascota_name }}</a></li>
+        {% endfor %}
+    {% else %}
+    <h1>no se encontraron mascotas con este nombre!!</h1>
+    {% endif %}
+
+</body>
+</html>
