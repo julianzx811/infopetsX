@@ -5,7 +5,7 @@
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/results.css' %}">
     <script src="{% static 'java/registro.js' %}"></script>
-    <title>Info Pets</title>
+    <title>REGISTRO DEL VETERINARIO</title>
   </head>
   <body>
   <form action="{% url 'general:registro' %}" method="post">{% csrf_token %}
