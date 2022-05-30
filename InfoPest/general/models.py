@@ -37,4 +37,6 @@ class historial_clinico(models.Model):
 class citas(models.Model):
     veterinario_id = models.ForeignKey(veterinarios, on_delete=models.CASCADE)
     mascota_id = models.ForeignKey(mascota, on_delete=models.CASCADE)
+    fecha_cita = models.DateTimeField(default= timezone.now)
+    razon = models.CharField(max_length=400, default='sin razon aparente')
 

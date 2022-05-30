@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>agregar cita</title>
+    <style>
+        textarea {
+            resize: none;
+        }
+    </style>
+</head>
+<body>
+    <form  action="{% url 'general:guardar_cita' id%}" method="post" >{% csrf_token %}
+        <h2>fecha de la cita</h2>
+        <input type="date" name="fecha" required>
+
+        <h2>mascota a la que se quiere atender</h2>
+        <select id="dropdown_mascotas" name="select_mascotas" required>
+          <option value="" disabled selected hidden>selecione la mascota asociada</option>
+          {% for mascota in mascotas %}
+            <option value={{mascota.id}}>{{mascota.mascota_name}}</option>
+          {% endfor %}
+        </select>
+
+        <h2>razon de la cita</h2>
+        <textarea name="razon" rows="4" cols="50"></textarea>
+
+        <button type="submit" class="agendarCita">agendar cita</button>
+    </form>
+</body>
+</html>

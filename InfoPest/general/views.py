@@ -1,5 +1,5 @@
 from django.shortcuts import render, reverse, redirect
-from .models import veterinarios, mascota, info_pets_empresas, veterinaria, historial_clinico
+from .models import veterinarios, mascota, info_pets_empresas, veterinaria, historial_clinico, citas
 from django.http import HttpResponse
 # return render(request, 'polls/index.html', context)
 
@@ -81,3 +81,16 @@ def ver_mascotas_usuario(request):
     mascotas = mascota.objects.filter(mascota_name__startswith=mascota_name)
     context = {'mascotas': mascotas}
     return render(request, 'html/ver_mascotas.html', context)
+
+def agregar_cita(request,id):
+    mascotas = mascota.objects.filter(dueno_id=id)
+    context = {'mascotas': mascotas, 'id':id}
+    return render(request, 'html/agregar_cita.html',context)
+
+def guardar_cita(request,id):
+    fecha = request.POST.get('fecha')
+    mascota_id = request.POST.get('select_mascotas')
+    razon = request.POST.get('razon')
+    cita = citas(veterinario_id=veterinarios.objects.get(pk=id), mascota_id=mascota.objects.get(pk=mascota_id), fecha_cita=fecha, razon=razon)
+    cita.save()
+    return pag_principal(request, id)

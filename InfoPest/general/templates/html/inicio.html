@@ -18,6 +18,11 @@
     <form action="{% url 'general:creando_mascota' id %}">{% csrf_token %}
       <button type="submit" >Agregar mascota</button>
     </form>
+    <form action="{% url 'general:agregar_cita' id%}">{% csrf_token %}
+      <button type="submit" >Agregar cita</button>
+    </form>
+    <h2>proximas citas</h2>
+
     {% endif %}
   </body>
 </html>
