@@ -28,6 +28,7 @@ def pag_principal(request,id):
         context['uname'] = usuario.usuario
         context['psw'] = usuario.contrasena
         context['id'] = usuario.id
+        context['citas'] = citas.objects.filter(veterinario_id=veterinarios.objects.get(pk=id))
     return render(request,'html/inicio.html',context)
 
 def registrandome(request):

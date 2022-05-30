@@ -22,7 +22,11 @@
       <button type="submit" >Agregar cita</button>
     </form>
     <h2>proximas citas</h2>
-
+      {% if citas%}
+        {% for cita in citas %}
+            <li>{{ cita.fecha_cita }}</li>
+        {% endfor %}
+      {% endif %}
     {% endif %}
   </body>
 </html>
