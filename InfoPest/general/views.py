@@ -18,6 +18,20 @@ def redirect_pag_principal(request):
     else:
         return pag_principal(request, 0)
 
+    centroVet_ = request.POST.get('centrovete')
+    email_ = request.POST.get('email')
+    celular_ = request.POST.get('phone')
+    encargado_ = request.POST.get('unames')
+    direccion_ = request.POST.get('adress')
+    contrasena_ = request.POST.get('psw')
+    nuevo_centro = veterinarios(email=veterinaria.objects.get(pk=email_), celular=celular_,usuario=usuarioxd, encargado=encargado_,
+                                 direccion=direccion_,contrasena=password)
+    nuevo_centro.save()
+    id = nuevo_centro.id
+    return registrandome(request, id)
+
+
+
 def pag_principal(request,id):
     context = {}
     if id == 0:
@@ -29,6 +43,7 @@ def pag_principal(request,id):
         context['psw'] = usuario.contrasena
         context['id'] = usuario.id
     return render(request,'html/inicio.html',context)
+
 
 def registrandome(request):
     veterinarias = veterinaria.objects.all()

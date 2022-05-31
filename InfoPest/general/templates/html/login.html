@@ -9,6 +9,7 @@
   <body>
   <header><div id="izquierda"><h1>INFO PETS</h1></div>
       <div id="derecha">
+        <a href="">Inicio</a>
         <a href="">Contacto</a>
         <a href="">Conocenos</a>
         <a href="">Iniciar sesión</a>
@@ -27,24 +28,8 @@
    </div>
    <div id = "registrarse">
        <h1 id="tituloRegistrarse">REGISTRATE</h1>
-       <form action="{% url 'general:redirect_pag_principal' %}" method="post" id="formRegistro">{% csrf_token %}
+       <form action="{% url 'general:registrandome' %}" method="post" id="formRegistro">{% csrf_token %}
       <p>Registra tu veterinaria</p>
-        <div id="division">
-          <div id="der">
-              <label ><b>Centro veterinario</b></label>
-              <input type="text"  name="uname" required>
-              <label for="email"><b>Email</b></label>
-              <input type="text" placeholder="example@email.com" name="email" id="email" required>
-              <label ><b>Celular</b></label>
-              <input type="text"  name="uname" required>
-          </div>
-          <div id="izq">
-              <label ><b>Nombre del encargado</b></label>
-              <input type="text"  name="uname" required>
-              <label ><b>Dirección</b></label>
-              <input type="text"  name="uname" required>
-          </div>
-        </div>
           <button class="regisButton" type="submit">REGISTRATE AQUÍ</button>
       </form>
   </div>

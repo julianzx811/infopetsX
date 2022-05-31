@@ -76,7 +76,8 @@ header {
     padding-left: 0.5rem;
     border: 2px solid;
     border-radius: 5px;
-    border-color: #C9D3DD;
+    background-color: #CB90DC;
+    border-color: #CB90DC;
 }
 
 #registrarse input{
@@ -153,6 +154,7 @@ header {
 }
 
 #derecha a:hover {
+     top: 0;
      width: 50;
      background: #F8C9F4;
 }
