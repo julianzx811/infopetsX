@@ -95,3 +95,24 @@ def guardar_cita(request,id):
     cita = citas(veterinario_id=veterinarios.objects.get(pk=id), mascota_id=mascota.objects.get(pk=mascota_id), fecha_cita=fecha, razon=razon)
     cita.save()
     return pag_principal(request, id)
+
+def ver_cita(request,id):
+    cita = citas.objects.get(pk=id)
+    razon = cita.razon
+    mascotaxd = cita.mascota_id.mascota_name
+    historial = historial_clinico.objects.get(mascota_id=cita.mascota_id.id)
+    context = {
+        'mascotaxd': mascotaxd,
+        'razon': razon,
+        'mascota_historial': historial.mascota_historial,
+        'id': cita.id
+    }
+    return render(request, 'html/citas.html',context)
+
+def cita_fecha(request,id):
+    historial_new = request.POST.get('historial')
+    cita = citas.objects.get(pk=id)
+    historial_clinico.objects.filter(mascota_id=cita.mascota_id.id).update(mascota_historial=historial_new)
+    id = cita.veterinario_id.id
+    cita.delete()
+    return pag_principal(request, id)

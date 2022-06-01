@@ -22,9 +22,9 @@
       <button type="submit" >Agregar cita</button>
     </form>
     <h2>proximas citas</h2>
-      {% if citas%}
+      {% if citas %}
         {% for cita in citas %}
-            <li>{{ cita.fecha_cita }}</li>
+            <a href="{% url 'general:ver_cita' cita.id %}"><li>{{ cita.fecha_cita }}</li></a>
         {% endfor %}
       {% endif %}
     {% endif %}

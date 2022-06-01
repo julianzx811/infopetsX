@@ -18,4 +18,6 @@ urlpatterns = [
     #citas veterianario
     path('pag_principal/agregar_cita/<int:id>', views.agregar_cita, name='agregar_cita'),
     path('pag_principal/guardar_cita/<int:id>', views.guardar_cita, name='guardar_cita'),
+    path('pag_principal/ver_cita/<int:id>', views.ver_cita, name='ver_cita'),
+    path('pag_principal/cita_fecha/<int:id>', views.cita_fecha, name='cita_fecha'),
 ]
