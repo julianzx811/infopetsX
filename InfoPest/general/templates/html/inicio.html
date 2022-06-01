@@ -24,8 +24,11 @@
     <h2>proximas citas</h2>
       {% if citas %}
         {% for cita in citas %}
-            <a href="{% url 'general:ver_cita' cita.id %}"><li>{{ cita.fecha_cita }}</li></a>
+            <li><a href="{% url 'general:ver_cita' cita.id %}">{{ cita.fecha_cita }}</a></li>
         {% endfor %}
+      {% endif %}
+      {% if no_citas %}
+        {{ no_citas }}
       {% endif %}
     {% endif %}
   </body>

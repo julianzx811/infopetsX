@@ -24,11 +24,15 @@ def pag_principal(request,id):
         context['uname'] = 'no'
         context['psw'] = 'no'
     else:
+        citasxd = citas.objects.filter(veterinario_id=veterinarios.objects.get(pk=id))
         usuario = veterinarios.objects.get(id=id)
         context['uname'] = usuario.usuario
         context['psw'] = usuario.contrasena
         context['id'] = usuario.id
-        context['citas'] = citas.objects.filter(veterinario_id=veterinarios.objects.get(pk=id))
+        if citasxd.exists():
+            context['citas'] = citasxd
+        else:
+            context['no_citas'] = 'no tienes citas de momento'
     return render(request,'html/inicio.html',context)
 
 def registrandome(request):
@@ -55,8 +59,8 @@ def creando_mascota(request,id):
 def anadiendo_mascota(request,id):
     nombre = request.POST.get('nombre')
     edad = request.POST.get('edad')
-    sexo = sexoo = request.POST['select']
-    new_mascota = mascota(dueno_id=veterinarios.objects.get(pk=id),mascota_name=nombre,edad=edad,sexo=sexo)
+    sexo = request.POST['sexo_mascota']
+    new_mascota = mascota(dueno_id=veterinarios.objects.get(pk=id), mascota_name=nombre, edad=edad, sexo=sexo)
     new_mascota.save()
     new_historial_mascota = historial_clinico(mascota_id=mascota.objects.get(pk=new_mascota.id),mascota_historial='historial vacio')
     new_historial_mascota.save()
