@@ -2,17 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>citas page lol</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estiloHistorial.css' %}">
+    <title>HISTORIAL</title>
 </head>
 <body>
-    <form action="{% url 'general:cita_fecha' id %}" method="post">{% csrf_token %}
-        <h2>nombre de la mascota</h2>
-        {{ mascotaxd }}
-        <h2>razon de la cita</h2>
-        {{ razon }}
-        <h2>historial de la mascota</h2>
-        <textarea name="historial" rows="10" cols="50">{{ mascota_historial }}</textarea>
-        <button type="submit" >terminar cita</button>
-    </form>
+    <header><div id="izquierda"><h1>INFO PETS</h1></div>
+      <div id="derecha">
+         <ul>
+           <li><a id="cse" href="{% url 'general:inicio' %}">Cerrar sesión</a></li>
+         </ul>
+      </div>
+  </header>
+     <div id="general">
+       <div class="menu">
+          <h1>Litle Pets</h1>
+          <form action="{% url 'general:pag_principal' id %}">{% csrf_token %}
+           <button class="vercitas" type="submit" >Ver citas</button>
+          </form>
+          <form action="{% url 'general:ver_mascotas' id %}">{% csrf_token %}
+            <button class="vermasc" type="submit" >Ver mascotas</button>
+          </form>
+          <form action="{% url 'general:creando_mascota' id %}">{% csrf_token %}
+            <button class="crearmasc" type="submit" >Agregar mascota</button>
+          </form>
+          <form action="{% url 'general:agregar_cita' id%}">{% csrf_token %}
+            <button class="agregarcita" type="submit" >Agregar cita</button>
+          </form>
+        </div>
+
+        <div class="container">
+            <h1>Historia clinica: {{ mascotaxd }}</h1>
+            <form action="{% url 'general:cita_fecha' id %}" method="post">{% csrf_token %}
+            <h2>Nombre de la mascota</h2>
+                <p>{{ mascotaxd }}</p>
+            <h2>Razon de la cita</h2>
+                <p>{{ razon }}</p>
+            <h2>Historial de la mascota</h2>
+            <textarea name="historial" rows="10" cols="50">{{ mascota_historial }}</textarea>
+            <button class="fina" type="submit" >FINALIZAR CONSULTA</button>
+        </form>
+        </div>
+     </div>
+
 </body>
 </html>

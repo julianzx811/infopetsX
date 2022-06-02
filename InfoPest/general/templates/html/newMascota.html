@@ -1,27 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilosCrearMas.css' %}">
 <title>REGISTRAR MASCOTA</title>
 </head>
 <body>
-<form action="{% url 'general:anadiendo_mascota' id %}" method="post">{% csrf_token %}
-  <div class="container">
-    <h1>REGISTRO {{uname}}</h1>
-    <hr>
-    <label for="nombre"><b>Nombre</b></label>
-    <input type="text" name="nombre" id="nombre" required>
+     <header><div id="izquierda"><h1>INFO PETS</h1></div>
+      <div id="derecha">
+         <ul>
+           <li><a id="cse" href="{% url 'general:inicio' %}">Cerrar sesión</a></li>
+         </ul>
+      </div>
+  </header>
+     <div id="general">
+       <div class="menu">
+          <h1>Litle Pets</h1>
+          <form action="{% url 'general:pag_principal' id %}">{% csrf_token %}
+           <button class="vercitas" type="submit" >Ver citas</button>
+          </form>
+          <form action="{% url 'general:ver_mascotas' id %}">{% csrf_token %}
+            <button class="vermasc" type="submit" >Ver mascotas</button>
+          </form>
+          <form action="{% url 'general:creando_mascota' id %}">{% csrf_token %}
+            <button class="crearmasc" type="submit" >Agregar mascota</button>
+          </form>
+          <form action="{% url 'general:agregar_cita' id%}">{% csrf_token %}
+            <button class="agregarcita" type="submit" >Agregar cita</button>
+          </form>
+        </div>
 
-    <label for="edad"><b>Edad</b></label>
-    <input type="number"  min="1" max="30" name="edad" id="edad" required>
+      <div class="registroMas">
+        <form action="{% url 'general:anadiendo_mascota' id %}" method="post">{% csrf_token %}
+          <div class="container">
+            <h1>REGISTRO {{uname}}</h1>
+            <hr>
+            <label for="nombre"><b>Nombre</b></label>
+            <input type="text" name="nombre" id="nombre" required>
 
-    <select id="dropdown" name="sexo_mascota">
-      <option value="" disabled selected hidden>Genero de la mascota</option>
-      <option value="masculino">Macho</option>
-      <option value="femenino">Hembra</option>
-    </select>
-    <hr>
-    <button type="submit" class="registerbtn">AÑADIR MASCOTA</button>
-  </div>
-  </form>
+            <label for="edad"><b>Edad</b></label>
+            <input type="number"  min="1" max="30" name="edad" id="edad" required>
+
+            <select id="dropdown" name="sexo_mascota">
+              <option value="" disabled selected hidden>Genero de la mascota</option>
+              <option value="masculino">Macho</option>
+              <option value="femenino">Hembra</option>
+            </select>
+            <hr>
+            <button id="registrButton" type="submit" class="registerbtn">AÑADIR MASCOTA</button>
+          </div>
+        </form>
+      </div>
+     </div>
 </body>
 </html>

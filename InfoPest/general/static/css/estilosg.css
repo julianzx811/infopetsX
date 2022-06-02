@@ -107,6 +107,7 @@ header {
     font-size: 1.2rem;
     margin-bottom: 0.2rem;
     color: #3B4754;
+    font-family: 'Asap', sans-serif;
 }
 
 #inicioSesion input{
@@ -119,6 +120,8 @@ header {
     border-radius: 5px;
     background-color: #ECEDEF;
     border-color: #ECEDEF;
+    font-family: 'Asap', sans-serif;
+    padding: 9px;
 }
 
 #registrarse input{

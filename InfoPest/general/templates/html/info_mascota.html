@@ -1,18 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>INFORMACIÓN DE LA MASCOTA</title>
+    <meta charset="utf-8">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estiloInfo.css' %}">
+    <title>INFORMACIÓN DE LA MASCOTA</title>
 </head>
 <body>
-<h1>Veteriano asociado</h1>
-<h2>{{dueno_id}}</h2>
-<h1>Nombre de la mascota</h1>
-<h2>{{mascota_name}}</h2>
-<h1>Edad de la mascota</h1>
-<h2>{{edad}}</h2>
-<h1>Genero de la mascota</h1>
-<h2>{{sexo}}</h2>
-<h1>Historial medico de la mascota</h1>
-<h2>{{historial}}</h2>
+    <header><div id="izquierda"><h1>INFO PETS</h1></div>
+      <div id="derecha">
+         <ul>
+           <li><a>{{uname}} </a></li>
+           <li><a id="cse" href="{% url 'general:inicio' %}">Cerrar sesión</a></li>
+         </ul>
+      </div>
+  </header>
+
+    <div id="general">
+        <div class="menu">
+           <h1>Litle Pets</h1>
+           <form action="{% url 'general:pag_principal' id %}">{% csrf_token %}
+            <button class="vercitas" type="submit" >Ver citas</button>
+           </form>
+
+          <form action="{% url 'general:ver_mascotas' id %}">{% csrf_token %}
+            <button class="vermasc" type="submit" >Ver mascotas</button>
+          </form>
+
+          <form action="{% url 'general:creando_mascota' id %}">{% csrf_token %}
+            <button class="crearmasc" type="submit" >Agregar mascota</button>
+          </form>
+
+          <form action="{% url 'general:agregar_cita' id%}">{% csrf_token %}
+            <button class="agregarcita" type="submit" >Agregar cita</button>
+          </form>
+        </div>
+        <div class="infoMasc">
+            <p>Veteriano asociado: {{dueno_id}}</p>
+            <p>Nombre de la mascota: {{mascota_name}}</p>
+            <p>Edad de la mascota: {{edad}}</p>
+            <p>Genero de la mascota: {{sexo}}</p>
+            <p>Historial medico de la mascota: {{historial}}</p>
+        </div>
+    </div>
+
 </body>
 </html>

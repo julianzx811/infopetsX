@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@1,500&display=swap');
+
+* {
+    margin: 0;
+    box-sizing: boder-box;
+}
+
+body {
+    font-family: 'Asap', sans-serif;
+}
+
+header {
+    padding: 20px;
+    background: #CB90DC;
+    color: #fff;
+
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+}

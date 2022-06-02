@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>agregar cita</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilosCitas.css' %}">
+    <title>AGENDAR CITA</title>
     <style>
         textarea {
             resize: none;
@@ -10,22 +12,49 @@
     </style>
 </head>
 <body>
-    <form  action="{% url 'general:guardar_cita' id%}" method="post" >{% csrf_token %}
-        <h2>fecha de la cita</h2>
-        <input type="date" name="fecha" required>
+    <header><div id="izquierda"><h1>INFO PETS</h1></div>
+      <div id="derecha">
+         <ul>
+           <li><a id="cse" href="{% url 'general:inicio' %}">Cerrar sesión</a></li>
+         </ul>
+      </div>
+  </header>
+     <div id="general">
+       <div class="menu">
+          <h1>Litle Pets</h1>
+          <form action="{% url 'general:pag_principal' id %}">{% csrf_token %}
+           <button class="vercitas" type="submit" >Ver citas</button>
+          </form>
+          <form action="{% url 'general:ver_mascotas' id %}">{% csrf_token %}
+            <button class="vermasc" type="submit" >Ver mascotas</button>
+          </form>
+          <form action="{% url 'general:creando_mascota' id %}">{% csrf_token %}
+            <button class="crearmasc" type="submit" >Agregar mascota</button>
+          </form>
+          <form action="{% url 'general:agregar_cita' id%}">{% csrf_token %}
+            <button class="agregarcita" type="submit" >Agregar cita</button>
+          </form>
+        </div>
+        <div class="container">
+            <h1>Agendar una cita</h1>
+            <form  action="{% url 'general:guardar_cita' id%}" method="post" >{% csrf_token %}
+            <h2>Fecha de la cita</h2>
+            <input id="fecha" type="date" name="fecha" required>
 
-        <h2>mascota a la que se quiere atender</h2>
-        <select id="dropdown_mascotas" name="select_mascotas" required>
-          <option value="" disabled selected hidden>selecione la mascota asociada</option>
-          {% for mascota in mascotas %}
-            <option value={{mascota.id}}>{{mascota.mascota_name}}</option>
-          {% endfor %}
-        </select>
+            <h2>Mascota a la que se quiere atender</h2>
+            <select id="dropdown_mascotas" name="select_mascotas" required>
+              <option value="" disabled selected hidden>selecione la mascota asociada</option>
+              {% for mascota in mascotas %}
+                <option value={{mascota.id}}>{{mascota.mascota_name}}</option>
+              {% endfor %}
+            </select>
 
-        <h2>razon de la cita</h2>
-        <textarea name="razon" rows="4" cols="50"></textarea>
+            <h2>Razon de la cita</h2>
+            <textarea name="razon" rows="4" cols="50"></textarea>
 
-        <button type="submit" class="agendarCita">agendar cita</button>
-    </form>
+            <button type="submit" class="agendarCita">AGENDAR CITA</button>
+        </form>
+        </div>
+     </div>
 </body>
 </html>
