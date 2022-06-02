@@ -2,34 +2,57 @@
 <html>
   <head>
     <meta charset="utf-8">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilosIni.css' %}">
     <title>INFO PETS</title>
   </head>
   <body>
-    {% if  uname == 'no' and  psw == 'no' %}
-      <h1>Usted no esta registrado en la pagina, por favor vuelva al inicio para crear un perfil</h1>
-      <a href="{% url 'general:inicio' %}">volver a la pagina de inicio</a>
-    {% endif %}
+  <header><div id="izquierda"><h1>INFO PETS</h1></div>
+      <div id="derecha">
+         <ul>
+           <li><a>BIENVENID@ {{uname}} </a></li>
+           <li><a id="cse" href="{% url 'general:inicio' %}">Cerrar sesión</a></li>
+         </ul>
+      </div>
+  </header>
+  <div id="general">
+      <div id="mensajenoacceder">
+      {% if  uname == 'no' and  psw == 'no' %}
+        <h1>Usted no esta registrado en la pagina, por favor vuelva al inicio para crear un perfil</h1>
+        <form action="{% url 'general:inicio'  %}">{% csrf_token %}
+          <button class="volverButton" type="submit" >VOLVER</button>
+        </form>
+      {% endif %}
 
-    {% if  uname != 'no' and  psw != 'no'%}
-      <h1>BIENVENID@ {{uname}} </h1>
-    <form action="{% url 'general:ver_mascotas' id %}">{% csrf_token %}
-      <button type="submit" >Ver mascotas</button>
-    </form>
-    <form action="{% url 'general:creando_mascota' id %}">{% csrf_token %}
-      <button type="submit" >Agregar mascota</button>
-    </form>
-    <form action="{% url 'general:agregar_cita' id%}">{% csrf_token %}
-      <button type="submit" >Agregar cita</button>
-    </form>
-    <h2>proximas citas</h2>
-      {% if citas %}
-        {% for cita in citas %}
-            <li><a href="{% url 'general:ver_cita' cita.id %}">{{ cita.fecha_cita }}</a></li>
-        {% endfor %}
+      {% if  uname != 'no' and  psw != 'no'%}
+      </div>
+    <div class="menu">
+      <h1>Litle Pets</h1>
+      <form action="{% url 'general:pag_principal' id %}">{% csrf_token %}
+       <button class="vercitas" type="submit" >Ver citas</button>
+      </form>
+      <form action="{% url 'general:ver_mascotas' id %}">{% csrf_token %}
+        <button class="vermasc" type="submit" >Ver mascotas</button>
+      </form>
+      <form action="{% url 'general:creando_mascota' id %}">{% csrf_token %}
+        <button class="crearmasc" type="submit" >Agregar mascota</button>
+      </form>
+      <form action="{% url 'general:agregar_cita' id%}">{% csrf_token %}
+        <button class="agregarcita" type="submit" >Agregar cita</button>
+      </form>
+    </div>
+    <div class="container">
+      <h2>Proximas citas</h2>
+        {% if citas %}
+          {% for cita in citas %}
+              <li><a href="{% url 'general:ver_cita' cita.id %}">{{ cita.fecha_cita }}</a></li>
+          {% endfor %}
+        {% endif %}
+        {% if no_citas %}
+         {{ no_citas }}
+        {% endif %}
       {% endif %}
-      {% if no_citas %}
-        {{ no_citas }}
-      {% endif %}
-    {% endif %}
+    </div>
+  </div>
   </body>
 </html>

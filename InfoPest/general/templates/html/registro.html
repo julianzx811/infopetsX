@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/results.css' %}">
     <script src="{% static 'java/registro.js' %}"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'css/estilosrv.css' %}">
     <title>REGISTRO DEL VETERINARIO</title>
@@ -16,10 +15,17 @@
   </header>
   <div id="general">
     <div class="menu">
+
       <H1 id="nombreVete">LITLE PETS</H1>
-      <a href="">Registrar Veterinario</a>
-      <a href="">Ver Veterinarios registrados</a>
-      <a href="">Ver macotas registrados</a>
+      <form action="{% url 'general:registrandome' %}" method="post" id="vetRegis">{% csrf_token %}
+          <button class="registrarVete" type="submit">Registrar vetetinario</button>
+      </form>
+      <form action="{% url 'general:registrandome' %}" method="post" id="verVetes">{% csrf_token %}
+          <button class="vervetes" type="submit">Ver Veterinarios registrados</button>
+      </form>
+      <form action="{% url 'general:registrandome' %}" method="post" id="verMasc">{% csrf_token %}
+          <button class="vermasc" type="submit">Ver macotas registrados</button>
+      </form>
     </div>
   <form action="{% url 'general:registro' %}" method="post">{% csrf_token %}
     <div class="container">
@@ -56,17 +62,16 @@
 
           <select id="dropdown_veterinarias" name="select_veterinarias" required>
             <option value="" disabled selected hidden>SELECCIONE LA VETERINARIA ASOCIADA</option>
-            <!--{% for veterinaria in veterinarias %}
+            {% for veterinaria in veterinarias %}
               <option value={{veterinaria.id}}>{{veterinaria.nombre}}</option>
-             {% endfor %}-->
-             <option class="options" value="femenino">Litle Pets</option>
+             {% endfor %}
           </select>
         </div>
       </div>
-        <hr>
-        <button id="registrButton" type="submit" class="registerbtn">REGISTRAR</button>
-        </div>
-        </form>
+
+          <button id="registrButton" type="submit" class="registerbtn">REGISTRAR</button>
+    </div>
+  </form>
       </div>
   </body>
 </html>

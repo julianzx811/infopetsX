@@ -13,7 +13,46 @@ header {
     padding: 20px;
     background: #CB90DC;
     color: #fff;
+
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
 }
+
+#derecha {
+     float: right;
+     font-size: 20px;
+     margin: -35px 50px;
+}
+
+#derecha a {
+     color: #fff;
+     text-decoration: none;
+     align-items: center;
+}
+
+#derecha ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#derecha ul li {
+    display: inline-block;
+}
+
+#derecha ul li a {
+    display: block;
+    padding: 0.5rem 1 rem;
+    transitio: all 0.2s;
+    width: 90px;
+}
+
+#derecha ul li a:hover {
+     background: #F8C9F4;
+}
+
 
 #general {
     display: flex;
@@ -24,31 +63,17 @@ header {
 #inicioSesion {
     width: 30%;
     height: 300px;
-    padding: 15px;
+    padding: 85px;
 }
 
 #registrarse {
-    width: 70%;
-    height: 500px;
+    width: 80%;
+    height: 450px;
     background-color: #F6EFF8;
-    padding: 15px;
+    padding: 85px;
 }
 
 .iniciosecButton{
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40%;
-    height: 100%;
-    background: #CB90DC;
-    color: #fff;
-    font-size: 20px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.regisButton{
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -60,6 +85,22 @@ header {
     border: none;
     cursor: pointer;
     border-radius: 5px;
+    font-family: 'Asap', sans-serif;
+}
+
+.regisButton{
+     display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    height: 100%;
+    background: #CB90DC;
+    color: #fff;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: 'Asap', sans-serif;
 }
 
 .container label{
@@ -69,15 +110,15 @@ header {
 }
 
 #inicioSesion input{
-    width: 80%;
+    width: 85%;
     height: 1000%;
     font-size: 1.1rem;
     margin-bottom: 1rem;
     padding-left: 0.5rem;
     border: 2px solid;
     border-radius: 5px;
-    background-color: #CDCBCD;
-    border-color: #CDCBCD;
+    background-color: #ECEDEF;
+    border-color: #ECEDEF;
 }
 
 #registrarse input{
@@ -140,21 +181,4 @@ header {
 #izq >input{
     display: block;
     width: 100%;
-}
-
-#derecha {
-     float: right;
-     font-size: 20px;
-     margin: -35px 50px;
-}
-
-#derecha a {
-     color: #fff;
-     text-decoration: none;
-}
-
-#derecha a:hover {
-     top: 0;
-     width: 50;
-     background: #F8C9F4;
 }

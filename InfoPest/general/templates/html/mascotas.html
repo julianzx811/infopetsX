@@ -2,17 +2,49 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>MASCOTAS</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilomasc.css' %}">
+  <title>VER MASCOTAS</title>
 </head>
 <body>
-  {% if mascotas %}
-    <ul>
-    {% for mascota in mascotas %}
-        <li><a href="{% url 'general:info_mascota' mascota.id %}">{{ mascota.mascota_name }}</a></li>
-    {% endfor %}
-    </ul>
-  {% else %}
-      <p>No has registrado ninguna mascota</p>
-  {% endif %}
+    <header><div id="izquierda"><h1>INFO PETS</h1></div>
+      <div id="derecha">
+         <ul>
+           <li><a>{{uname}} </a></li>
+           <li><a id="cse" href="{% url 'general:inicio' %}">Cerrar sesión</a></li>
+         </ul>
+      </div>
+  </header>
+
+    <div id="general">
+        <div class="menu">
+          <h1>Litle Pets</h1>
+          <form action="{% url 'general:pag_principal' id %}">{% csrf_token %}
+            <button class="vercitas" type="submit" >Ver citas</button>
+          </form>
+          <form action="{% url 'general:ver_mascotas' id %}">{% csrf_token %}
+            <button class="vermasc" type="submit" >Ver mascotas</button>
+          </form>
+          <form action="{% url 'general:creando_mascota' id %}">{% csrf_token %}
+            <button class="crearmasc" type="submit" >Agregar mascota</button>
+          </form>
+          <form action="{% url 'general:agregar_cita' id%}">{% csrf_token %}
+            <button class="agregarcita" type="submit" >Agregar cita</button>
+          </form>
+        </div>
+
+        <div class="mascotaV">
+            <h2>Mascotas registradas</h2>
+            {% if mascotas %}
+            <ul>
+            {% for mascota in mascotas %}
+                <li><a id="masc" href="{% url 'general:info_mascota' mascota.id %}">{{ mascota.mascota_name }}</a></li>
+            {% endfor %}
+            </ul>
+          {% else %}
+              <p>No has registrado ninguna mascota</p>
+          {% endif %}
+        </div>
+    </div>
 </body>
 </html>

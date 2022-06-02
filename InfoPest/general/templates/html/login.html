@@ -2,38 +2,41 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Info Pets</title>
-      {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/wtf.css' %}">
-
     <title>INICIAR SESIÓN</title>
-
+      {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilosg.css' %}">
   </head>
   <body>
-   <div class="container">
-    <form action="{% url 'general:redirect_pag_principal' %}" method="post">{% csrf_token %}
+  <header><div id="izquierda"><h1>INFO PETS</h1></div>
+      <div>
+        <nav id="derecha">
+            <ul>
+                <li><a href="">Inicio</a></li>
+                <li><a href="">Contacto</a></li>
+                <li><a href="">Conocenos</a></li>
+                <!--<a href="">Iniciar sesión</a>-->
+            </ul>
+        </nav>
+      </div>
+  </header>
+  <div id="general">
+  <div id="inicioSesion">
+      <h1 id="tituloInicioSesion">Inicio de sesión</h1>
+    <form action="{% url 'general:redirect_pag_principal' %}" method="post" id="formInicioSesion">{% csrf_token %}
         <label ><b>Usuario</b></label>
         <input type="text"  name="uname" required>
-
         <label ><b>Contraseña</b></label>
         <input type="password" name="psw" required>
-        <button type="submit">INICIAR SESION</button>
+        <button id="inicioSesionButton" type="submit"><span>INICIAR SESION</span></button>
     </form>
    </div>
    <div id = "registrarse">
-      <p>¿No tienes cuenta?</p>
-      <form action="{% url 'general:registrandome' %}" method="post">{% csrf_token %}
-          <button type="submit">REGISTRATE AQUÍ</button>
+       <h1 id="tituloRegistrarse">REGISTRATE</h1>
+       <form action="{% url 'general:registrandome' %}" method="post" id="formRegistro">{% csrf_token %}
+      <p>Registra tu veterinaria</p>
+          <button class="regisButton" type="submit">REGISTRATE AQUÍ</button>
       </form>
   </div>
-
-   <form action="{% url 'general:ver_mascotas_usuario' %}" method="post">{% csrf_token %}
-      <div class="topnav">
-          <label ><b>encuentra a tu mascota!!</b></label>
-          <input type="text" placeholder="nombre de tu mascota.." name="mascota_name">
-          <button type="submit">buscar</button>
-        </div>
-   </form>
-
+</div>
   </body>
 </html>
