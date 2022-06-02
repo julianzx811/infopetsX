@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@1,500&display=swap');
+
+* {
+    margin: 0;
+    box-sizing: boder-box;
+}
+
+body {
+    font-family: 'Asap', sans-serif;
+}
+
+header {
+    padding: 20px;
+    background: #CB90DC;
+    color: #fff;
+}
+
+#general {
+    display: flex;
+    height: 100vh;
+    padding: 15px;
+}
+
+#inicioSesion {
+    width: 30%;
+    height: 300px;
+    padding: 15px;
+}
+
+#registrarse {
+    width: 70%;
+    height: 500px;
+    background-color: #F6EFF8;
+    padding: 15px;
+}
+
+.iniciosecButton{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    height: 100%;
+    background: #CB90DC;
+    color: #fff;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.regisButton{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    height: 100%;
+    background: #CB90DC;
+    color: #fff;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.container label{
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
+    color: #3B4754;
+}
+
+#inicioSesion input{
+    width: 80%;
+    height: 1000%;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    padding-left: 0.5rem;
+    border: 2px solid;
+    border-radius: 5px;
+    background-color: #CDCBCD;
+    border-color: #CDCBCD;
+}
+
+#registrarse input{
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    padding-left: 0.5rem;
+    border: 2px solid;
+    border-radius: 5px;
+    border-color: #C9D3DD;
+}
+
+#tituloInicioSesion {
+    margin-bottom: 15px;
+}
+
+#tituloRegistrarse {
+    margin-bottom: 15px;
+}
+
+#inicioSesionButton {
+    width: 80%;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    padding-left: 0.5rem;
+    border: 2px solid;
+    border-radius: 5px;
+    background:#C9D3DD;
+    border-color: #C9D3DD;
+    cursor: pointer;
+
+}
+
+#formInicioSesion {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+
+#division {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    width: 90%;
+}
+
+#der{
+    width:40%
+}
+
+#izq {
+    width:45%
+}
+
+#der >input{
+    display: block;
+    width: 100%;
+}
+
+#izq >input{
+    display: block;
+    width: 100%;
+}
+
+#derecha {
+     float: right;
+     font-size: 20px;
+     margin: -35px 50px;
+}
+
+#derecha a {
+     color: #fff;
+     text-decoration: none;
+}
+
+#derecha a:hover {
+     top: 0;
+     width: 50;
+     background: #F8C9F4;
+}

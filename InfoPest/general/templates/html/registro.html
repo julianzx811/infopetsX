@@ -5,48 +5,68 @@
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/results.css' %}">
     <script src="{% static 'java/registro.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilosrv.css' %}">
     <title>REGISTRO DEL VETERINARIO</title>
   </head>
   <body>
+<header><div id="izquierda"><h1>INFO PETS</h1></div>
+      <div id="derecha">
+        <a href="{% url 'general:inicio' %}">Cerrar sesión</a>
+      </div>
+  </header>
+  <div id="general">
+    <div class="menu">
+      <H1 id="nombreVete">LITLE PETS</H1>
+      <a href="">Registrar Veterinario</a>
+      <a href="">Ver Veterinarios registrados</a>
+      <a href="">Ver macotas registrados</a>
+    </div>
   <form action="{% url 'general:registro' %}" method="post">{% csrf_token %}
-  <div class="container">
-    <h1>REGISTRO</h1>
-    <hr>
-    <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Email" name="email" id="email" required>
+    <div class="container">
+      <h1 id="tituloRegistrarVet">REGISTRO</h1>
+      <hr>
+      <h3>Registra un nuevo veterinario</h3>
+      <div id="division">
 
-    <label for="Usuario"><b>Usuario</b></label>
-    <input type="text" placeholder="Usuario" name="uname" id="usuario" required>
+        <div id="der">
+          <label for="Usuario"><b>Usuario</b></label>
+          <input type="text" placeholder="Usuario" name="uname" id="usuario" required>
 
-    <label for="psw"><b>Contraseña</b></label>
-    <input type="password" placeholder="contraseña" name="psw" id="psw" required>
+          <label for="email"><b>Email</b></label>
+          <input type="text" placeholder="Email" name="email" id="email" required>
 
-    <label for="psw-repeat"><b>Repite tu contraseña</b></label>
-    <input type="password" placeholder="" name="psw-repeat" id="psw-repeat" required>
+          <label for="edad"><b>Edad</b></label>
+          <input type="number"  min="18" max="70" name="edad" id="edad" required>
 
-    <label for="edad"><b>Edad</b></label>
-    <input type="number"  min="18" max="100" name="edad" id="edad" required>
 
-    <select id="dropdown" name="select" required>
-      <option value="" disabled selected hidden>selecione su genero</option>
-      <option value="masculino">masculino</option>
-      <option value="femenino">femenino</option>
-      <option value="binario">binario wtfff????</option>
-    </select>
+        </div>
+        <div id="izq">
+          <label for="psw"><b>Contraseña</b></label>
+          <input type="password" placeholder="contraseña" name="psw" id="psw" required>
 
-    <select id="dropdown_veterinarias" name="select_veterinarias" required>
-      <option value="" disabled selected hidden>selecione su veterinaria asociada</option>
-      {% for veterinaria in veterinarias %}
-        <option value={{veterinaria.id}}>{{veterinaria.nombre}}</option>
-      {% endfor %}
-    </select>
+          <label for="psw-repeat"><b>Repite tu contraseña</b></label>
+          <input type="password" placeholder="" name="psw-repeat" id="psw-repeat" required>
 
-    <hr>
-    <button type="submit" class="registerbtn">REGISTRAR</button>
-  </div>
-  </form>
-  <div class="container signin">
-    <p>¿Ya tienes cuenta? <a href="{% url 'general:inicio' %}">INICIAR SESION</a>.</p>
-  </div>
+          <select id="dropdown" name="select" required>
+            <option value="" disabled selected hidden>SELECCIONE SU GENERO</option>
+            <option value="masculino">Masculino</option>
+            <option value="femenino">Femenino</option>
+            <option value="binario">Binario</option>
+          </select>
+
+          <select id="dropdown_veterinarias" name="select_veterinarias" required>
+            <option value="" disabled selected hidden>SELECCIONE LA VETERINARIA ASOCIADA</option>
+            <!--{% for veterinaria in veterinarias %}
+              <option value={{veterinaria.id}}>{{veterinaria.nombre}}</option>
+             {% endfor %}-->
+             <option class="options" value="femenino">Litle Pets</option>
+          </select>
+        </div>
+      </div>
+        <hr>
+        <button id="registrButton" type="submit" class="registerbtn">REGISTRAR</button>
+        </div>
+        </form>
+      </div>
   </body>
 </html>
