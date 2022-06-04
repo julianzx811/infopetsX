@@ -1,41 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
+  <meta charset="utf-8">
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/estiloInfo.css' %}">
-    <title>INFORMACIÓN DE LA MASCOTA</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilosCrearMas.css' %}">
+<title>REGISTRAR MASCOTA</title>
 </head>
 <body>
-    <header><div id="izquierda"><h1>INFO PETS</h1></div>
+     <header><div id="izquierda"><h1>INFO PETS</h1></div>
       <div id="derecha">
          <ul>
-           <li><a>{{uname}} </a></li>
            <li><a id="cse" href="{% url 'general:inicio' %}">Cerrar sesión</a></li>
          </ul>
       </div>
   </header>
-
-    <div id="general">
-        <div class="menu">
-           <h1>Litle Pets</h1>
-           <form action="{% url 'general:pag_principal' id %}">{% csrf_token %}
+     <div class="grid-container">
+        <div class="item1">
+          <h1>Litle Pets</h1>
+          <form action="{% url 'general:pag_principal' id %}">{% csrf_token %}
             <button class="vercitas" type="submit" >Ver citas</button>
-           </form>
-
+          </form>
           <form action="{% url 'general:ver_mascotas' id %}">{% csrf_token %}
             <button class="vermasc" type="submit" >Ver mascotas</button>
           </form>
-
           <form action="{% url 'general:creando_mascota' id %}">{% csrf_token %}
             <button class="crearmasc" type="submit" >Agregar mascota</button>
           </form>
-
           <form action="{% url 'general:agregar_cita' id%}">{% csrf_token %}
             <button class="agregarcita" type="submit" >Agregar cita</button>
           </form>
         </div>
-        <div class="infoMasc">
+
+        <div class="item2">
             <p>Veteriano asociado: {{dueno_id}}</p>
             <p>Nombre de la mascota: {{mascota_name}}</p>
             <p>Edad de la mascota: {{edad}}</p>
@@ -43,6 +39,7 @@
             <p>Historial medico de la mascota: {{historial}}</p>
         </div>
     </div>
-
 </body>
 </html>
+
+
