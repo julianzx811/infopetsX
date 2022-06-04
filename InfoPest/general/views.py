@@ -93,7 +93,7 @@ def info_mascota(request,id):
     edad = mascotas.edad
     sexo = mascotas.sexo
     historial = historial_clinico.objects.get(mascota_id=mascotas.id)
-    context = {'dueno_id':dueno_id , 'mascota_name':mascota_name , 'edad':edad, 'sexo':sexo,'historial':historial.mascota_historial}
+    context = {'dueno_id': dueno_id , 'mascota_name': mascota_name , 'edad': edad, 'sexo': sexo,'historial': historial.mascota_historial, 'id':dueno_id.id}
     return render(request, 'html/info_mascota.html', context)
 
 def ver_mascotas_usuario(request):
