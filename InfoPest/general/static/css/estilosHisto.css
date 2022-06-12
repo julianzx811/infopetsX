@@ -10,8 +10,8 @@ body {
 }
 
 header {
-    padding: 20px;
-    background: #CB90DC;
+    padding: 15px;
+    background: #934261;
     color: #fff;
 
     position: fixed;
@@ -50,7 +50,7 @@ header {
 }
 
 #cse:hover {
-     background: #F8C9F4;
+     background: #F16B9C;
 }
 
 .menu {
@@ -83,7 +83,7 @@ h1 {
     justify-content: center;
     width: 130%;
     height: 80%;
-    background: #CB90DC;
+    background: #934261;
     color: #fff;
     font-size: 20px;
     border: none;
@@ -100,7 +100,7 @@ h1 {
     justify-content: center;
     width: 130%;
     height: 80%;
-    background: #F2E1F7;
+    background: #EFD6DF;
     color: #737074;
     font-size: 20px;
     border: none;
@@ -117,7 +117,7 @@ h1 {
     justify-content: center;
     width: 130%;
     height: 80%;
-    background: #F2E1F7;
+    background: #EFD6DF;
     color: #737074;
     font-size: 20px;
     border: none;
@@ -134,7 +134,7 @@ h1 {
     justify-content: center;
     width: 130%;
     height: 80%;
-    background: #F2E1F7;
+    background: #EFD6DF;
     color: #737074;
     font-size: 20px;
     border: none;
@@ -151,7 +151,7 @@ h1 {
     justify-content: center;
     width: 30%;
     height: 20%;
-    background: #CB90DC;
+    background: #934261;
     color: #fff;
     font-size: 20px;
     border: none;
@@ -160,6 +160,7 @@ h1 {
     font-family: 'Asap', sans-serif;
     margin-top: 45px;
     padding: 15px;
+    margin-left: 250px;
 }
 
 .container h1 {

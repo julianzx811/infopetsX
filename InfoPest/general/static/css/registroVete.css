@@ -11,7 +11,7 @@ body {
 
 header {
     padding: 20px;
-    background: #CB90DC;
+    background: #934261;
     color: #fff;
 
     position: fixed;
@@ -34,7 +34,7 @@ header {
 #derecha a:hover {
      top: 0;
      width: 50;
-     background: #F8C9F4;
+     background: #F16B9C;
 }
 
 .menu {
@@ -152,7 +152,7 @@ h3 {
     justify-content: center;
     width: 40%;
     height: 20%;
-    background: #CB90DC;
+    background: #934261;
     color: #fff;
     font-size: 20px;
     border: none;
@@ -169,7 +169,7 @@ h3 {
     justify-content: center;
     width: 135%;
     height: 80%;
-    background: #CB90DC;
+    background: #934261;
     color: #fff;
     font-size: 20px;
     border: none;
@@ -186,7 +186,7 @@ h3 {
     justify-content: center;
     width: 135%;
     height: 80%;
-    background: #F2E1F7;
+    background: #EFD6DF;
     color: #737074;
     font-size: 20px;
     border: none;
@@ -203,7 +203,7 @@ h3 {
     justify-content: center;
     width: 135%;
     height: 80%;
-    background: #F2E1F7;
+    background: #EFD6DF;
     color: #737074;
     font-size: 20px;
     border: none;

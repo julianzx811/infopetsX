@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/estilosCrearMas.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilosaniadirMas.css' %}">
 <title>REGISTRAR MASCOTA</title>
 </head>
 <body>
@@ -14,7 +14,7 @@
          </ul>
       </div>
   </header>
-     <div id="general">
+      <div id="general">
        <div class="menu">
           <h1>Litle Pets</h1>
           <form action="{% url 'general:pag_principal' id %}">{% csrf_token %}
@@ -30,12 +30,12 @@
             <button class="agregarcita" type="submit" >Agregar cita</button>
           </form>
         </div>
-
-      <div class="registroMas">
+        <div class="registroMas">
         <form action="{% url 'general:anadiendo_mascota' id %}" method="post">{% csrf_token %}
           <div class="container">
             <h1>REGISTRO {{uname}}</h1>
             <hr>
+
             <label for="nombre"><b>Nombre</b></label>
             <input type="text" name="nombre" id="nombre" required>
 
@@ -47,7 +47,7 @@
               <option value="masculino">Macho</option>
               <option value="femenino">Hembra</option>
             </select>
-            <hr>
+            <hr id="segundo">
             <button id="registrButton" type="submit" class="registerbtn">AÑADIR MASCOTA</button>
           </div>
         </form>

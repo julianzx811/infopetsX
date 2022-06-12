@@ -11,7 +11,7 @@ body {
 
 header {
     padding: 20px;
-    background: #CB90DC;
+    background: #934261;
     color: #fff;
 
     position: fixed;
@@ -50,7 +50,7 @@ header {
 }
 
 #cse:hover {
-     background: #F8C9F4;
+     background: #F16B9C;
 }
 
 .menu {
@@ -67,8 +67,7 @@ header {
     padding: 80px;
 }
 
-
-.mascotaV {
+.container {
     width: 100%;
     height: 300px;
     padding: 50px;
@@ -84,8 +83,8 @@ h2 {
     justify-content: center;
     width: 130%;
     height: 80%;
-    background: #F2E1F7;
-    color: #737074;
+    background: #934261;
+    color: #fff;
     font-size: 20px;
     border: none;
     cursor: pointer;
@@ -101,8 +100,8 @@ h2 {
     justify-content: center;
     width: 130%;
     height: 80%;
-    background: #CB90DC;
-    color: #fff;
+    background: #EFD6DF;
+    color: #737074;
     font-size: 20px;
     border: none;
     cursor: pointer;
@@ -118,7 +117,7 @@ h2 {
     justify-content: center;
     width: 130%;
     height: 80%;
-    background: #F2E1F7;
+    background: #EFD6DF;
     color: #737074;
     font-size: 20px;
     border: none;
@@ -135,7 +134,7 @@ h2 {
     justify-content: center;
     width: 130%;
     height: 80%;
-    background: #F2E1F7;
+    background: #EFD6DF;
     color: #737074;
     font-size: 20px;
     border: none;
@@ -146,15 +145,4 @@ h2 {
     margin-top: 40px;
 }
 
-.mascotaV a {
-     text-decoration: none;
-     align-items: center;
-     color: #581845;
-     font-size: 30px;
-}
 
-.mascotaV ul{
-
-    list-style: circle;
-    font-size: 30px;
-}
